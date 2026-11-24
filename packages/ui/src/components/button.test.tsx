@@ -185,4 +185,10 @@ describe("Button pending state", () => {
     const contentSpan = container.querySelector("span[class*='opacity-50']")
     expect(contentSpan).toBeInTheDocument()
   })
+
+  it("includes motion-reduce:animate-none on the pending spinner (#1057)", () => {
+    const { container } = render(<Button pending>Submit</Button>)
+    const spinner = container.querySelector("span[aria-hidden='true']")
+    expect(spinner?.className).toContain("motion-reduce:animate-none")
+  })
 })
