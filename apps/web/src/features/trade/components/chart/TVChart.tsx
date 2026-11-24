@@ -73,7 +73,7 @@ export function TVChart({ symbol, onSelectToken }: Props) {
       {/* Period selector toolbar */}
       <div
         ref={toolbarRef}
-        className="relative flex gap-1 border-b border-border px-3 py-1.5"
+        className="relative flex items-center gap-1 overflow-x-auto border-b border-border px-3 py-1.5"
         role="group"
         aria-label="Chart timeframe selection"
         onKeyDown={handleKeyDown}
@@ -91,6 +91,7 @@ export function TVChart({ symbol, onSelectToken }: Props) {
         {PERIODS.map((p) => (
           <button
             key={p}
+            type="button"
             ref={(el) => {
               if (el) buttonRefs.current.set(p, el)
               else buttonRefs.current.delete(p)
@@ -100,7 +101,7 @@ export function TVChart({ symbol, onSelectToken }: Props) {
             aria-label={`${p} timeframe`}
             title={`Switch to ${p} chart (${p === period ? "current" : ""})`}
             className={cn(
-              "relative z-10 rounded-sm px-2 py-0.5 font-mono text-xs transition-colors duration-fast ease-spring-snappy",
+              "relative z-10 inline-flex min-h-11 min-w-11 shrink-0 touch-manipulation items-center justify-center rounded-sm px-2.5 py-1 font-mono text-xs transition-colors duration-fast ease-spring-snappy motion-reduce:transition-none sm:min-h-7 sm:min-w-0 sm:px-2 sm:py-0.5",
               "focus-visible:outline-2 focus-visible:outline-offset-1 focus-visible:outline-ring",
               period === p
                 ? "text-primary-foreground font-semibold"

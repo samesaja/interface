@@ -495,8 +495,8 @@ export function TVChartContainer({ symbol, period, marketLabel }: Props) {
             claiming the content is static. */}
         <div
           ref={containerRef}
-          className={cn("h-full w-full transition-opacity duration-base", isStale && "opacity-60")}
-          style={{ touchAction: "none" }}
+          className={cn("h-full w-full transition-opacity duration-base motion-reduce:transition-none", isStale && "opacity-60")}
+          style={{ touchAction: "pan-y pinch-zoom" }}
           role="region"
           aria-label={`Price chart for ${label}`}
           aria-describedby="chart-desc"
@@ -510,7 +510,7 @@ export function TVChartContainer({ symbol, period, marketLabel }: Props) {
           <button
             type="button"
             onClick={() => setShowTable((v) => !v)}
-            className="flex w-full items-center justify-between px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring"
+            className="flex min-h-11 w-full touch-manipulation items-center justify-between px-3 py-1.5 text-xs text-muted-foreground transition-colors hover:text-foreground focus-visible:outline-2 focus-visible:outline-ring sm:min-h-8"
             aria-expanded={showTable}
             aria-controls="ohlc-data-table"
           >
