@@ -25,11 +25,11 @@ export function MarketStatsHeader({
   ]
 
   return (
-    <dl data-testid="market-stats" className="grid grid-cols-2 gap-x-3 gap-y-2 px-3 py-2 sm:grid-cols-3 sm:gap-4 xl:grid-cols-5">
+    <dl data-testid="market-stats" className="grid grid-cols-2 gap-x-3 gap-y-2 overflow-x-hidden px-3 py-2 sm:grid-cols-3 sm:gap-4 xl:grid-cols-5">
       {stats.map(([label, value, description]) => (
         <div key={label} className="min-w-0">
           <dt className="break-words text-xs text-muted-foreground" title={description}>{label}</dt>
-          <dd className="font-mono text-sm tabular-nums">{value}</dd>
+          <dd className="truncate font-mono text-sm tabular-nums">{value}</dd>
         </div>
       ))}
     </dl>

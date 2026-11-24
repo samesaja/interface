@@ -24,7 +24,7 @@ export function ChartHeader({ symbol, onSelectToken }: Props) {
   const isNegative = (delta?.deltaPercentage ?? 0) < 0
 
   return (
-    <div className="border-b border-border">
+    <div className="overflow-x-hidden border-b border-border">
       <div className="flex min-w-0 flex-wrap items-center gap-x-4 gap-y-2 px-3 py-2 text-sm xl:flex-nowrap xl:overflow-x-auto">
       {/* Market selector */}
       <MarketSelector
