@@ -20,7 +20,7 @@ fine" — loses.
 > every command below has been run and has passed on the code you are about to
 > commit.**
 
-Run from the repository root, in this order:
+Run from the repository root, in this order (enforced on every pull request in `.github/workflows/ci.yml` with `bun install --frozen-lockfile`):
 
 ```bash
 bun lint               # zero errors

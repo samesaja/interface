@@ -73,7 +73,7 @@ that CI will still catch. See [Project-specific gotchas](#project-specific-gotch
 ## The quality gate
 
 **Every change must pass all of the following before you commit.** These are the
-exact commands CI runs, in the same order. Run them from the repository root.
+exact commands enforced by the pull request CI workflow ([`.github/workflows/ci.yml`](./.github/workflows/ci.yml) after `bun install --frozen-lockfile`), in the same order, where any failure fails the required status check. Run them from the repository root.
 
 ```bash
 bun lint               # ESLint across all packages — zero errors
